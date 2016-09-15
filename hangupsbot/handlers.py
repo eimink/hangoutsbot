@@ -150,6 +150,9 @@ class EventHandler:
     def handle_command(self, event):
         """Handle command messages"""
 
+        if event.text[0] == '!':
+            event.text = "/bot " + event.text[1:]
+
         # is commands_enabled?
 
         config_commands_enabled = self.bot.get_config_suboption(event.conv_id, 'commands_enabled')
